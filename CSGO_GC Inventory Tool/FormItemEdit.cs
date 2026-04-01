@@ -168,5 +168,21 @@ namespace CSGO_GC_Inventory_Tool
             form1.UpdateItemList();
             this.Close();
         }
+
+        private void textBoxDefIndex_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxDefIndex.Text != "")
+            {
+                Item dummy = new Item(inventoryHandler, int.Parse(textBoxDefIndex.Text), 0, 0, 0, 0, false, 0);
+                if (dummy.IsWeapon && textBoxPaintId.Text != "") dummy.SetWeaponInfo(int.Parse(textBoxPaintId.Text), 0, 0);
+                labelItemName.Text = dummy.Name;
+            }
+            else labelItemName.Text = "";
+        }
+
+        private void textBoxPaintId_TextChanged(object sender, EventArgs e)
+        {
+            textBoxDefIndex_TextChanged((object) sender, e);
+        }
     }
 }

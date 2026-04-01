@@ -63,6 +63,7 @@
             labelSticker2Scrape = new Label();
             labelSticker3Scrape = new Label();
             labelSticker4Scrape = new Label();
+            labelItemName = new Label();
             SuspendLayout();
             // 
             // labelDefIndex
@@ -126,6 +127,7 @@
             textBoxDefIndex.Name = "textBoxDefIndex";
             textBoxDefIndex.Size = new Size(125, 27);
             textBoxDefIndex.TabIndex = 7;
+            textBoxDefIndex.TextChanged += textBoxDefIndex_TextChanged;
             // 
             // textBoxRarity
             // 
@@ -140,6 +142,7 @@
             textBoxPaintId.Name = "textBoxPaintId";
             textBoxPaintId.Size = new Size(125, 27);
             textBoxPaintId.TabIndex = 10;
+            textBoxPaintId.TextChanged += textBoxPaintId_TextChanged;
             // 
             // textBoxPattern
             // 
@@ -192,7 +195,7 @@
             // labelStickerId
             // 
             labelStickerId.AutoSize = true;
-            labelStickerId.Location = new Point(254, 9);
+            labelStickerId.Location = new Point(254, 42);
             labelStickerId.Name = "labelStickerId";
             labelStickerId.Size = new Size(96, 20);
             labelStickerId.TabIndex = 17;
@@ -200,7 +203,7 @@
             // 
             // textBoxStickerId
             // 
-            textBoxStickerId.Location = new Point(365, 6);
+            textBoxStickerId.Location = new Point(365, 39);
             textBoxStickerId.Name = "textBoxStickerId";
             textBoxStickerId.Size = new Size(125, 27);
             textBoxStickerId.TabIndex = 18;
@@ -224,7 +227,7 @@
             // labelSticker2
             // 
             labelSticker2.AutoSize = true;
-            labelSticker2.Location = new Point(254, 42);
+            labelSticker2.Location = new Point(254, 75);
             labelSticker2.Name = "labelSticker2";
             labelSticker2.Size = new Size(108, 20);
             labelSticker2.TabIndex = 21;
@@ -232,7 +235,7 @@
             // 
             // textBoxSticker2
             // 
-            textBoxSticker2.Location = new Point(365, 39);
+            textBoxSticker2.Location = new Point(365, 72);
             textBoxSticker2.Name = "textBoxSticker2";
             textBoxSticker2.Size = new Size(125, 27);
             textBoxSticker2.TabIndex = 22;
@@ -240,7 +243,7 @@
             // labelSticker3
             // 
             labelSticker3.AutoSize = true;
-            labelSticker3.Location = new Point(254, 75);
+            labelSticker3.Location = new Point(254, 108);
             labelSticker3.Name = "labelSticker3";
             labelSticker3.Size = new Size(108, 20);
             labelSticker3.TabIndex = 23;
@@ -248,7 +251,7 @@
             // 
             // textBoxSticker3
             // 
-            textBoxSticker3.Location = new Point(365, 72);
+            textBoxSticker3.Location = new Point(365, 105);
             textBoxSticker3.Name = "textBoxSticker3";
             textBoxSticker3.Size = new Size(125, 27);
             textBoxSticker3.TabIndex = 24;
@@ -256,7 +259,7 @@
             // labelSticker4
             // 
             labelSticker4.AutoSize = true;
-            labelSticker4.Location = new Point(254, 108);
+            labelSticker4.Location = new Point(254, 141);
             labelSticker4.Name = "labelSticker4";
             labelSticker4.Size = new Size(108, 20);
             labelSticker4.TabIndex = 25;
@@ -264,7 +267,7 @@
             // 
             // textBoxSticker4
             // 
-            textBoxSticker4.Location = new Point(365, 105);
+            textBoxSticker4.Location = new Point(365, 138);
             textBoxSticker4.Name = "textBoxSticker4";
             textBoxSticker4.Size = new Size(125, 27);
             textBoxSticker4.TabIndex = 26;
@@ -288,7 +291,7 @@
             // labelSticker1Scrape
             // 
             labelSticker1Scrape.AutoSize = true;
-            labelSticker1Scrape.Location = new Point(496, 9);
+            labelSticker1Scrape.Location = new Point(496, 42);
             labelSticker1Scrape.Name = "labelSticker1Scrape";
             labelSticker1Scrape.Size = new Size(117, 20);
             labelSticker1Scrape.TabIndex = 29;
@@ -296,28 +299,28 @@
             // 
             // textBoxSticker1Scrape
             // 
-            textBoxSticker1Scrape.Location = new Point(619, 6);
+            textBoxSticker1Scrape.Location = new Point(619, 39);
             textBoxSticker1Scrape.Name = "textBoxSticker1Scrape";
             textBoxSticker1Scrape.Size = new Size(125, 27);
             textBoxSticker1Scrape.TabIndex = 30;
             // 
             // textBoxSticker2Scrape
             // 
-            textBoxSticker2Scrape.Location = new Point(619, 39);
+            textBoxSticker2Scrape.Location = new Point(619, 72);
             textBoxSticker2Scrape.Name = "textBoxSticker2Scrape";
             textBoxSticker2Scrape.Size = new Size(125, 27);
             textBoxSticker2Scrape.TabIndex = 31;
             // 
             // textBoxSticker3Scrape
             // 
-            textBoxSticker3Scrape.Location = new Point(619, 72);
+            textBoxSticker3Scrape.Location = new Point(619, 105);
             textBoxSticker3Scrape.Name = "textBoxSticker3Scrape";
             textBoxSticker3Scrape.Size = new Size(125, 27);
             textBoxSticker3Scrape.TabIndex = 32;
             // 
             // textBoxSticker4Scrape
             // 
-            textBoxSticker4Scrape.Location = new Point(619, 105);
+            textBoxSticker4Scrape.Location = new Point(619, 138);
             textBoxSticker4Scrape.Name = "textBoxSticker4Scrape";
             textBoxSticker4Scrape.Size = new Size(125, 27);
             textBoxSticker4Scrape.TabIndex = 33;
@@ -325,7 +328,7 @@
             // labelSticker2Scrape
             // 
             labelSticker2Scrape.AutoSize = true;
-            labelSticker2Scrape.Location = new Point(496, 42);
+            labelSticker2Scrape.Location = new Point(496, 75);
             labelSticker2Scrape.Name = "labelSticker2Scrape";
             labelSticker2Scrape.Size = new Size(117, 20);
             labelSticker2Scrape.TabIndex = 34;
@@ -334,7 +337,7 @@
             // labelSticker3Scrape
             // 
             labelSticker3Scrape.AutoSize = true;
-            labelSticker3Scrape.Location = new Point(496, 75);
+            labelSticker3Scrape.Location = new Point(496, 108);
             labelSticker3Scrape.Name = "labelSticker3Scrape";
             labelSticker3Scrape.Size = new Size(117, 20);
             labelSticker3Scrape.TabIndex = 35;
@@ -343,17 +346,26 @@
             // labelSticker4Scrape
             // 
             labelSticker4Scrape.AutoSize = true;
-            labelSticker4Scrape.Location = new Point(496, 108);
+            labelSticker4Scrape.Location = new Point(496, 141);
             labelSticker4Scrape.Name = "labelSticker4Scrape";
             labelSticker4Scrape.Size = new Size(117, 20);
             labelSticker4Scrape.TabIndex = 36;
             labelSticker4Scrape.Text = "Sticker 4 Scrape:";
+            // 
+            // labelItemName
+            // 
+            labelItemName.AutoSize = true;
+            labelItemName.Location = new Point(254, 9);
+            labelItemName.Name = "labelItemName";
+            labelItemName.Size = new Size(0, 20);
+            labelItemName.TabIndex = 37;
             // 
             // FormItemEdit
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(759, 249);
+            Controls.Add(labelItemName);
             Controls.Add(labelSticker4Scrape);
             Controls.Add(labelSticker3Scrape);
             Controls.Add(labelSticker2Scrape);
@@ -435,5 +447,6 @@
         private Label labelSticker2Scrape;
         private Label labelSticker3Scrape;
         private Label labelSticker4Scrape;
+        private Label labelItemName;
     }
 }
