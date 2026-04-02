@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace CSGO_GC_Inventory_Tool
 {
@@ -47,6 +48,9 @@ namespace CSGO_GC_Inventory_Tool
                 textBoxSticker4Scrape.Text = selectedItem.Sticker4Scrape;
                 if (selectedItem.IsGraffiti) textBoxGraffitiColor.Text = $"{selectedItem.GraffitiColor}";
                 else textBoxGraffitiColor.Text = "0";
+                if (selectedItem.IsMusicKit) textBoxMusicId.Text = $"{selectedItem.MusicId}";
+                else textBoxMusicId.Text = "0";
+                textBoxDefIndex_TextChanged((object)sender, e);
             }));
         }
 
@@ -77,7 +81,7 @@ namespace CSGO_GC_Inventory_Tool
                 }
             }
             double wear = wearRaw / 1000000;
-            if (modifiedItem.IsWeapon || modifiedItem.IsSticker || modifiedItem.IsPatch || modifiedItem.IsGraffiti)
+            if (modifiedItem.IsWeapon || modifiedItem.IsSticker || modifiedItem.IsPatch || modifiedItem.IsGraffiti || modifiedItem.IsMusicKit)
             {
                 List<string> attributes = new List<string>();
                 attributes.Add("\t\t\"attributes\"");
@@ -88,11 +92,11 @@ namespace CSGO_GC_Inventory_Tool
                     attributes.Add($"\t\t\t\"6\"\t\t\"{int.Parse(textBoxPaintId.Text)}.000000\"");
                     attributes.Add($"\t\t\t\"7\"\t\t\"{int.Parse(textBoxPattern.Text)}.000000\"");
                     attributes.Add($"\t\t\t\"8\"\t\t\"{wear.ToString(CultureInfo.InvariantCulture)}\"");
-                    if (checkBoxStatTrak.Checked)
-                    {
-                        attributes.Add($"\t\t\t\"80\"\t\t\"{int.Parse(textBoxStattrakKills.Text)}\"");
-                        attributes.Add($"\t\t\t\"81\"\t\t\"0\"");
-                    }
+                }
+                if (checkBoxStatTrak.Checked)
+                {
+                    attributes.Add($"\t\t\t\"80\"\t\t\"{int.Parse(textBoxStattrakKills.Text)}\"");
+                    attributes.Add($"\t\t\t\"81\"\t\t\"0\"");
                 }
                 if (textBoxStickerId.Text != "0")
                 {
@@ -130,6 +134,10 @@ namespace CSGO_GC_Inventory_Tool
                 {
                     attributes.Add($"\t\t\t\"233\"\t\t\"{int.Parse(textBoxGraffitiColor.Text)}\"");
                 }
+                if (modifiedItem.IsMusicKit)
+                {
+                    attributes.Add($"\t\t\t\"166\"\t\t\"{int.Parse(textBoxMusicId.Text)}\"");
+                }
                 attributes.Add("\t\t}");
                 modifiedItem.SetAttributes(attributes);
             }
@@ -143,8 +151,13 @@ namespace CSGO_GC_Inventory_Tool
         {
             try
             {
-                Item dummy = new Item(inventoryHandler, int.Parse(textBoxDefIndex.Text), 0, 0, 0, 0, false, 0);
+                Item dummy = new Item(inventoryHandler, int.Parse(textBoxDefIndex.Text), 0, 0, 0, 0, false, int.Parse(textBoxStickerId.Text));
                 if (dummy.IsWeapon && textBoxPaintId.Text != "") dummy.SetWeaponInfo(int.Parse(textBoxPaintId.Text), 0, 0);
+                List<string> dummyAttributes = new List<string>();
+                dummyAttributes.Add("\t\t\"attributes\"");
+                dummyAttributes.Add("\t\t{");
+                if (dummy.IsMusicKit) dummyAttributes.Add($"\t\t\t\"166\"\t\t\"{int.Parse(textBoxMusicId.Text)}\"");
+                dummy.SetAttributes(dummyAttributes);
                 labelItemName.Text = dummy.Name;
                 if (dummy.IsWeapon) labelStickerId.Text = "Sticker 1 Index:";
                 else if (dummy.IsSticker) labelStickerId.Text = "Sticker Index:";
@@ -171,7 +184,17 @@ namespace CSGO_GC_Inventory_Tool
 
         private void textBoxPaintId_TextChanged(object sender, EventArgs e)
         {
-            textBoxDefIndex_TextChanged((object) sender, e);
+            textBoxDefIndex_TextChanged((object)sender, e);
+        }
+
+        private void textBoxStickerId_TextChanged(object sender, EventArgs e)
+        {
+            textBoxDefIndex_TextChanged((object)sender, e);
+        }
+
+        private void textBoxMusicId_TextChanged(object sender, EventArgs e)
+        {
+            textBoxDefIndex_TextChanged((object)sender, e);
         }
     }
 }

@@ -25,11 +25,24 @@ namespace CSGO_GC_Inventory_Tool.Classes
         string[] equippedState;
         List<string> attributes;
         int stickerId;
-        int musicId;
 
         public bool IsWeapon => isWeapon;
         public bool IsSticker => defIndex == 1209;
         public bool IsMusicKit => defIndex == 1314;
+        public int MusicId
+        {
+            get
+            {
+                if (IsMusicKit)
+                {
+                    foreach (string line in Attributes)
+                    {
+                        if (line.Split('"').Length > 1 && line.Split('"')[1].Contains("166")) return int.Parse(line.Split('"')[3]);
+                    }
+                }
+                return 0;
+            }
+        }
         public bool IsGraffiti => defIndex == 1348;
         public int GraffitiColor
         {
@@ -125,7 +138,6 @@ namespace CSGO_GC_Inventory_Tool.Classes
                 return "0";
             }
         }
-        public int MusicId => musicId;
         public bool InUse => inUse;
         public string ItemName
         {
@@ -156,14 +168,14 @@ namespace CSGO_GC_Inventory_Tool.Classes
                     return CollectibleMap.Names.TryGetValue(defIndex, out var name) ? name : $"Unknown Collectible ({defIndex})";
                 }
 
-                if (PatchMap.Names.ContainsKey(defIndex))
+                if (IsPatch)
                 {
-                    return PatchMap.Names.TryGetValue(defIndex, out var name) ? name : $"Unknown Patch ({defIndex})";
+                    return PatchMap.Names.TryGetValue(stickerId, out var name) ? name : $"Unknown Patch ({stickerId})";
                 }
 
                 if (IsMusicKit)
                 {
-                    return $"Music kit ({defIndex})";
+                    return MusicMap.Names.TryGetValue(MusicId, out var name) ? name : $"Unknown Music Kit ({MusicId})";
                 }
 
                 if (IsGraffiti)

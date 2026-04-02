@@ -17,6 +17,7 @@ namespace CSGO_GC_Inventory_Tool
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            MusicMap.Load(@"items\music_kits_min.json");
             GraffitiMap.Load(@"items\graffiti_min.json");
             PatchMap.Load(@"items\patches_min.json");
             CollectibleMap.Load(@"items\collectibles_min.json");

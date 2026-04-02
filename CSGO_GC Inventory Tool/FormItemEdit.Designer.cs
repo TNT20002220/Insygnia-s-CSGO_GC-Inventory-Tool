@@ -207,6 +207,7 @@
             textBoxStickerId.Name = "textBoxStickerId";
             textBoxStickerId.Size = new Size(125, 27);
             textBoxStickerId.TabIndex = 18;
+            textBoxStickerId.TextChanged += textBoxStickerId_TextChanged;
             // 
             // textBoxGraffitiColor
             // 
@@ -278,6 +279,7 @@
             textBoxMusicId.Name = "textBoxMusicId";
             textBoxMusicId.Size = new Size(125, 27);
             textBoxMusicId.TabIndex = 27;
+            textBoxMusicId.TextChanged += textBoxMusicId_TextChanged;
             // 
             // labelMusicId
             // 
