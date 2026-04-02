@@ -47,36 +47,6 @@ namespace CSGO_GC_Inventory_Tool
                 textBoxSticker4Scrape.Text = selectedItem.Sticker4Scrape;
                 if (selectedItem.IsGraffiti) textBoxGraffitiColor.Text = $"{selectedItem.GraffitiColor}";
                 else textBoxGraffitiColor.Text = "0";
-
-                if (selectedItem.IsWeapon)
-                {
-                    textBoxGraffitiColor.Enabled = false;
-                    textBoxMusicId.Enabled = false;
-                }
-                else if (selectedItem.IsSticker)
-                {
-                    textBoxPaintId.Enabled = false;
-                    textBoxPattern.Enabled = false;
-                    textBoxWear.Enabled = false;
-                    textBoxStattrakKills.Enabled = false;
-                    checkBoxStatTrak.Enabled = false;
-                    textBoxSticker2.Enabled = false;
-                    textBoxSticker3.Enabled = false;
-                    textBoxSticker4.Enabled = false;
-                    textBoxGraffitiColor.Enabled = false;
-                    textBoxMusicId.Enabled = false;
-                }
-                else if (selectedItem.IsAgent)
-                {
-                    textBoxPaintId.Enabled = false;
-                    textBoxPattern.Enabled = false;
-                    textBoxWear.Enabled = false;
-                    checkBoxStatTrak.Enabled = false;
-                    textBoxStattrakKills.Enabled = false;
-                    textBoxSticker4.Enabled = false;
-                    textBoxGraffitiColor.Enabled = false;
-                    textBoxMusicId.Enabled = false;
-                }
             }));
         }
 
@@ -171,13 +141,32 @@ namespace CSGO_GC_Inventory_Tool
 
         private void textBoxDefIndex_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxDefIndex.Text != "")
+            try
             {
                 Item dummy = new Item(inventoryHandler, int.Parse(textBoxDefIndex.Text), 0, 0, 0, 0, false, 0);
                 if (dummy.IsWeapon && textBoxPaintId.Text != "") dummy.SetWeaponInfo(int.Parse(textBoxPaintId.Text), 0, 0);
                 labelItemName.Text = dummy.Name;
+                if (dummy.IsWeapon) labelStickerId.Text = "Sticker 1 Index:";
+                else if (dummy.IsSticker) labelStickerId.Text = "Sticker Index:";
+                else if (dummy.IsGraffiti) labelStickerId.Text = "Graffiti Index:";
+                else if (dummy.IsPatch) labelStickerId.Text = "Patch Index:";
+                else if (dummy.IsAgent)
+                {
+                    labelStickerId.Text = "Patch 1 Index:";
+                    labelSticker2.Text = "Patch 2 Index:";
+                    labelSticker3.Text = "Patch 3 Index:";
+                }
+                else
+                {
+                    labelStickerId.Text = "Sticker Index:";
+                    labelSticker2.Text = "Sticker 2 Index:";
+                    labelSticker3.Text = "Sticker 3 Index:";
+                }
             }
-            else labelItemName.Text = "";
+            catch (Exception)
+            {
+                labelItemName.Text = "";
+            }
         }
 
         private void textBoxPaintId_TextChanged(object sender, EventArgs e)
