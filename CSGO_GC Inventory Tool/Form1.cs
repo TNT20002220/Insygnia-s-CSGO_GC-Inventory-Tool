@@ -113,6 +113,7 @@ namespace CSGO_GC_Inventory_Tool
                             buttonDuplicate.Enabled = true;
                             buttonCopy.Enabled = true;
                             buttonModify.Enabled = true;
+                            buttonAddItem.Enabled = true;
                             MessageBox.Show($"Successfully loaded {items} items");
                         }));
                     }
@@ -253,6 +254,7 @@ namespace CSGO_GC_Inventory_Tool
                         buttonDuplicate.Enabled = true;
                         buttonCopy.Enabled = true;
                         buttonModify.Enabled = true;
+                        buttonAddItem.Enabled = true;
                     }));
                 }
             }
@@ -274,6 +276,12 @@ namespace CSGO_GC_Inventory_Tool
             inventoryHandler.RemoveDupes();
             ApplyFilter("");
             UpdateItemList();
+        }
+
+        private void buttonAddItem_Click(object sender, EventArgs e)
+        {
+            FormItemCreator formItemCreator = new FormItemCreator(inventoryHandler, this);
+            formItemCreator.ShowDialog();
         }
     }
 }

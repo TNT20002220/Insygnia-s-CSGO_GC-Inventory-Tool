@@ -59,6 +59,7 @@
             labelSearch = new Label();
             buttonAddCases = new Button();
             buttonCreateInv = new Button();
+            buttonAddItem = new Button();
             groupBoxItemTools.SuspendLayout();
             SuspendLayout();
             // 
@@ -98,7 +99,7 @@
             // 
             buttonNormalize.Enabled = false;
             buttonNormalize.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            buttonNormalize.Location = new Point(547, 72);
+            buttonNormalize.Location = new Point(621, 72);
             buttonNormalize.Name = "buttonNormalize";
             buttonNormalize.Size = new Size(211, 57);
             buttonNormalize.TabIndex = 3;
@@ -129,7 +130,7 @@
             groupBoxItemTools.Controls.Add(labelSelectedItemName);
             groupBoxItemTools.Location = new Point(266, 132);
             groupBoxItemTools.Name = "groupBoxItemTools";
-            groupBoxItemTools.Size = new Size(492, 304);
+            groupBoxItemTools.Size = new Size(566, 304);
             groupBoxItemTools.TabIndex = 4;
             groupBoxItemTools.TabStop = false;
             groupBoxItemTools.Text = "Selected Item";
@@ -191,7 +192,7 @@
             // buttonModify
             // 
             buttonModify.Enabled = false;
-            buttonModify.Location = new Point(345, 214);
+            buttonModify.Location = new Point(419, 214);
             buttonModify.Name = "buttonModify";
             buttonModify.Size = new Size(141, 84);
             buttonModify.TabIndex = 13;
@@ -365,7 +366,7 @@
             buttonAddCases.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
             buttonAddCases.Location = new Point(621, 12);
             buttonAddCases.Name = "buttonAddCases";
-            buttonAddCases.Size = new Size(137, 54);
+            buttonAddCases.Size = new Size(109, 54);
             buttonAddCases.TabIndex = 10;
             buttonAddCases.Text = "Add Cases";
             buttonAddCases.UseVisualStyleBackColor = true;
@@ -381,11 +382,24 @@
             buttonCreateInv.UseVisualStyleBackColor = true;
             buttonCreateInv.Click += buttonCreateInv_Click;
             // 
+            // buttonAddItem
+            // 
+            buttonAddItem.Enabled = false;
+            buttonAddItem.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            buttonAddItem.Location = new Point(736, 12);
+            buttonAddItem.Name = "buttonAddItem";
+            buttonAddItem.Size = new Size(96, 54);
+            buttonAddItem.TabIndex = 12;
+            buttonAddItem.Text = "Add Item";
+            buttonAddItem.UseVisualStyleBackColor = true;
+            buttonAddItem.Click += buttonAddItem_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(770, 450);
+            ClientSize = new Size(844, 450);
+            Controls.Add(buttonAddItem);
             Controls.Add(buttonCreateInv);
             Controls.Add(buttonAddCases);
             Controls.Add(labelSearch);
@@ -401,6 +415,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Insygnia's CSGO_GC Inventory Tool 2.0";
             Load += Form1_Load;
             groupBoxItemTools.ResumeLayout(false);
@@ -442,5 +457,6 @@
         private Label labelSticker2;
         private Label labelSticker1;
         private Label labelGraffitiColor;
+        private Button buttonAddItem;
     }
 }

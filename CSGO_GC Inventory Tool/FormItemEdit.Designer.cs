@@ -406,6 +406,7 @@
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             Name = "FormItemEdit";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Edit Selected Item";
             Load += FormItemEdit_Load;
             ResumeLayout(false);

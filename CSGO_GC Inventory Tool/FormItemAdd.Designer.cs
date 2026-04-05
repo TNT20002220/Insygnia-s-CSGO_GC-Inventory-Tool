@@ -106,6 +106,7 @@
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             Name = "FormItemAdd";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Add Cases";
             Load += FormItemAdd_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
