@@ -101,33 +101,21 @@ namespace CSGO_GC_Inventory_Tool
                 if (textBoxStickerId.Text != "0")
                 {
                     attributes.Add($"\t\t\t\"113\"\t\t\"{int.Parse(textBoxStickerId.Text)}\"");
-                }
-                if (textBoxSticker1Scrape.Text != "0")
-                {
                     attributes.Add($"\t\t\t\"114\"\t\t\"{textBoxSticker1Scrape.Text}\"");
                 }
                 if (textBoxSticker2.Text != "0")
                 {
                     attributes.Add($"\t\t\t\"117\"\t\t\"{int.Parse(textBoxSticker2.Text)}\"");
-                }
-                if (textBoxSticker2Scrape.Text != "0")
-                {
                     attributes.Add($"\t\t\t\"118\"\t\t\"{textBoxSticker2Scrape.Text}\"");
                 }
                 if (textBoxSticker3.Text != "0")
                 {
                     attributes.Add($"\t\t\t\"121\"\t\t\"{int.Parse(textBoxSticker3.Text)}\"");
-                }
-                if (textBoxSticker3Scrape.Text != "0")
-                {
                     attributes.Add($"\t\t\t\"122\"\t\t\"{textBoxSticker3Scrape.Text}\"");
                 }
                 if (textBoxSticker4.Text != "0")
                 {
                     attributes.Add($"\t\t\t\"125\"\t\t\"{int.Parse(textBoxSticker4.Text)}\"");
-                }
-                if (textBoxSticker4Scrape.Text != "0")
-                {
                     attributes.Add($"\t\t\t\"126\"\t\t\"{textBoxSticker4Scrape.Text}\"");
                 }
                 if (modifiedItem.IsGraffiti)

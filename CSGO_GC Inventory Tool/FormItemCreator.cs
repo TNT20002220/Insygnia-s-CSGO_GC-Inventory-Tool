@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -83,11 +84,7 @@ namespace CSGO_GC_Inventory_Tool
                     formLoading.SetProgress(5);
                     formLoading.Refresh();
                     comboBoxStickers.DataSource = StickerMap.Names
-                    .Select(kv => new
-                    {
-                        kv.Key,
-                        Value = kv.Value.Replace("Sticker | ", "")
-                    })
+                    .Select(kv => new KeyValuePair<int, string>(kv.Key, kv.Value.Replace("Sticker | ", "")))
                     .ToList();
                     comboBoxStickers.DisplayMember = "Value";
                     comboBoxStickers.ValueMember = "Key";
@@ -96,11 +93,7 @@ namespace CSGO_GC_Inventory_Tool
                     formLoading.SetProgress(6);
                     formLoading.Refresh();
                     comboBoxPatches.DataSource = PatchMap.Names
-                    .Select(kv => new
-                    {
-                        kv.Key,
-                        Value = kv.Value.Replace("Patch | ", "")
-                    })
+                    .Select(kv => new KeyValuePair<int, string>(kv.Key, kv.Value.Replace("Patch | ", "")))
                     .ToList();
                     comboBoxPatches.DisplayMember = "Value";
                     comboBoxPatches.ValueMember = "Key";
@@ -109,11 +102,7 @@ namespace CSGO_GC_Inventory_Tool
                     formLoading.SetProgress(7);
                     formLoading.Refresh();
                     comboBoxMusicKits.DataSource = MusicMap.Names
-                    .Select(kv => new
-                    {
-                        kv.Key,
-                        Value = kv.Value.Replace("Music Kit | ", "")
-                    })
+                    .Select(kv => new KeyValuePair<int, string>(kv.Key, kv.Value.Replace("Music Kit | ", "")))
                     .ToList();
                     comboBoxMusicKits.DisplayMember = "Value";
                     comboBoxMusicKits.ValueMember = "Key";
@@ -122,11 +111,7 @@ namespace CSGO_GC_Inventory_Tool
                     formLoading.SetProgress(8);
                     formLoading.Refresh();
                     comboBoxGraffities.DataSource = GraffitiMap.Names
-                    .Select(kv => new
-                    {
-                        kv.Key,
-                        Value = kv.Value.Replace("Sealed Graffiti | ", "")
-                    })
+                    .Select(kv => new KeyValuePair<int, string>(kv.Key, kv.Value.Replace("Sealed Graffiti | ", "")))
                     .ToList();
                     comboBoxGraffities.DisplayMember = "Value";
                     comboBoxGraffities.ValueMember = "Key";
@@ -165,11 +150,7 @@ namespace CSGO_GC_Inventory_Tool
                     formLoading.SetProgress(1);
                     formLoading.Refresh();
                     comboBoxSticker1.DataSource = StickerMap.Names
-                    .Select(kv => new
-                    {
-                        kv.Key,
-                        Value = kv.Value.Replace("Sticker | ", "")
-                    })
+                    .Select(kv => new KeyValuePair<int, string>(kv.Key, kv.Value.Replace("Sticker | ", "")))
                     .ToList();
                     comboBoxSticker1.DisplayMember = "Value";
                     comboBoxSticker1.ValueMember = "Key";
@@ -178,11 +159,7 @@ namespace CSGO_GC_Inventory_Tool
                     formLoading.SetProgress(3);
                     formLoading.Refresh();
                     comboBoxSticker2.DataSource = StickerMap.Names
-                    .Select(kv => new
-                    {
-                        kv.Key,
-                        Value = kv.Value.Replace("Sticker | ", "")
-                    })
+                    .Select(kv => new KeyValuePair<int, string>(kv.Key, kv.Value.Replace("Sticker | ", "")))
                     .ToList();
                     comboBoxSticker2.DisplayMember = "Value";
                     comboBoxSticker2.ValueMember = "Key";
@@ -191,11 +168,7 @@ namespace CSGO_GC_Inventory_Tool
                     formLoading.SetProgress(5);
                     formLoading.Refresh();
                     comboBoxSticker3.DataSource = StickerMap.Names
-                    .Select(kv => new
-                    {
-                        kv.Key,
-                        Value = kv.Value.Replace("Sticker | ", "")
-                    })
+                    .Select(kv => new KeyValuePair<int, string>(kv.Key, kv.Value.Replace("Sticker | ", "")))
                     .ToList();
                     comboBoxSticker3.DisplayMember = "Value";
                     comboBoxSticker3.ValueMember = "Key";
@@ -204,11 +177,7 @@ namespace CSGO_GC_Inventory_Tool
                     formLoading.SetProgress(7);
                     formLoading.Refresh();
                     comboBoxSticker4.DataSource = StickerMap.Names
-                    .Select(kv => new
-                    {
-                        kv.Key,
-                        Value = kv.Value.Replace("Sticker | ", "")
-                    })
+                    .Select(kv => new KeyValuePair<int, string>(kv.Key, kv.Value.Replace("Sticker | ", "")))
                     .ToList();
                     comboBoxSticker4.DisplayMember = "Value";
                     comboBoxSticker4.ValueMember = "Key";
@@ -217,11 +186,7 @@ namespace CSGO_GC_Inventory_Tool
                     formLoading.SetProgress(9);
                     formLoading.Refresh();
                     comboBoxSticker5.DataSource = StickerMap.Names
-                    .Select(kv => new
-                    {
-                        kv.Key,
-                        Value = kv.Value.Replace("Sticker | ", "")
-                    })
+                    .Select(kv => new KeyValuePair<int, string>(kv.Key, kv.Value.Replace("Sticker | ", "")))
                     .ToList();
                     comboBoxSticker5.DisplayMember = "Value";
                     comboBoxSticker5.ValueMember = "Key";
@@ -255,11 +220,7 @@ namespace CSGO_GC_Inventory_Tool
                     formLoading.SetProgress(3);
                     formLoading.Refresh();
                     comboBoxSticker1.DataSource = PatchMap.Names
-                    .Select(kv => new
-                    {
-                        kv.Key,
-                        Value = kv.Value.Replace("Patch | ", "")
-                    })
+                    .Select(kv => new KeyValuePair<int, string>(kv.Key, kv.Value.Replace("Patch | ", "")))
                     .ToList();
                     comboBoxSticker1.DisplayMember = "Value";
                     comboBoxSticker1.ValueMember = "Key";
@@ -268,11 +229,7 @@ namespace CSGO_GC_Inventory_Tool
                     formLoading.SetProgress(6);
                     formLoading.Refresh();
                     comboBoxSticker2.DataSource = PatchMap.Names
-                    .Select(kv => new
-                    {
-                        kv.Key,
-                        Value = kv.Value.Replace("Patch | ", "")
-                    })
+                    .Select(kv => new KeyValuePair<int, string>(kv.Key, kv.Value.Replace("Patch | ", "")))
                     .ToList();
                     comboBoxSticker2.DisplayMember = "Value";
                     comboBoxSticker2.ValueMember = "Key";
@@ -281,11 +238,7 @@ namespace CSGO_GC_Inventory_Tool
                     formLoading.SetProgress(9);
                     formLoading.Refresh();
                     comboBoxSticker3.DataSource = PatchMap.Names
-                    .Select(kv => new
-                    {
-                        kv.Key,
-                        Value = kv.Value.Replace("Patch | ", "")
-                    })
+                    .Select(kv => new KeyValuePair<int, string>(kv.Key, kv.Value.Replace("Patch | ", "")))
                     .ToList();
                     comboBoxSticker3.DisplayMember = "Value";
                     comboBoxSticker3.ValueMember = "Key";
@@ -384,11 +337,7 @@ namespace CSGO_GC_Inventory_Tool
             if (radioButtonWeapon.Checked)
             {
                 var correctSource = StickerMap.Names
-                    .Select(kv => new
-                    {
-                        kv.Key,
-                        Value = kv.Value.Replace("Sticker | ", "")
-                    })
+                    .Select(kv => new KeyValuePair<int, string>(kv.Key, kv.Value.Replace("Sticker | ", "")))
                     .ToList();
 
                 if (comboBoxSticker1.DataSource != correctSource || comboBoxSticker2.DataSource != correctSource || comboBoxSticker3.DataSource != correctSource || comboBoxSticker4.DataSource != correctSource)
@@ -408,6 +357,7 @@ namespace CSGO_GC_Inventory_Tool
                 checkBoxSticker3.Text = "Sticker 3";
                 labelGraffitiColor.Enabled = false;
                 numericUpDownGraffitiColor.Enabled = false;
+                if ((int)comboBoxWeapons.SelectedItem != (int)Weapon.g3sg1) checkBoxSticker5.Enabled = false;
                 UpdateName();
                 UpdateQuality();
             }));
@@ -708,7 +658,97 @@ namespace CSGO_GC_Inventory_Tool
             if (radioButtonMusicKit.Checked) newDefindex = 1314;
             if (radioButtonGraffiti.Checked) newDefindex = 1348;
             if (radioButtonKey.Checked) newDefindex = ((KeyValuePair<int, string>)comboBoxKeys.SelectedItem).Key;
-            MessageBox.Show($"{newDefindex}");
+            int newRarity = (int)numericUpDownRarity.Value;
+            int newStickerId = 0;
+            if (radioButtonSticker.Checked) newStickerId = ((KeyValuePair<int, string>)comboBoxStickers.SelectedItem).Key;
+            if (radioButtonPatch.Checked) newStickerId = ((KeyValuePair<int, string>)comboBoxPatches.SelectedItem).Key;
+            if (radioButtonGraffiti.Checked) newStickerId = ((KeyValuePair<int, string>)comboBoxGraffities.SelectedItem).Key;
+
+            Item newItem;
+
+            if (textBoxNameTag.Text != "") newItem = new Item(inventoryHandler, newDefindex, 0, 0, quality, newRarity, false, newStickerId, textBoxNameTag.Text);
+            else newItem = new Item(inventoryHandler, newDefindex, 0, 0, quality, newRarity, false, newStickerId);
+
+            if (newItem.IsWeapon || newItem.IsSticker || newItem.IsPatch || newItem.IsGraffiti || newItem.IsMusicKit)
+            {
+                List<string> attributes = new List<string>();
+                attributes.Add("\t\t\"attributes\"");
+                attributes.Add("\t\t{");
+                if (newItem.IsWeapon)
+                {
+                    newItem.SetWeaponInfo(((KeyValuePair<int, string>)comboBoxFinishes.SelectedItem).Key, (int)numericUpDownPattern.Value, double.Parse(textBoxWear.Text, CultureInfo.InvariantCulture));
+                    attributes.Add($"\t\t\t\"6\"\t\t\"{newItem.PaintId}.000000\"");
+                    attributes.Add($"\t\t\t\"7\"\t\t\"{newItem.Pattern}.000000\"");
+                    attributes.Add($"\t\t\t\"8\"\t\t\"{textBoxWear.Text}\"");
+                    if (checkBoxSticker1.Checked)
+                    {
+                        attributes.Add($"\t\t\t\"113\"\t\t\"{((KeyValuePair<int, string>)comboBoxSticker1.SelectedItem).Key}\"");
+                        attributes.Add($"\t\t\t\"114\"\t\t\"{textBoxScrape1.Text}\"");
+                    }
+                    if (checkBoxSticker2.Checked)
+                    {
+                        attributes.Add($"\t\t\t\"117\"\t\t\"{((KeyValuePair<int, string>)comboBoxSticker2.SelectedItem).Key}\"");
+                        attributes.Add($"\t\t\t\"118\"\t\t\"{textBoxScrape2.Text}\"");
+                    }
+                    if (checkBoxSticker3.Checked)
+                    {
+                        attributes.Add($"\t\t\t\"121\"\t\t\"{((KeyValuePair<int, string>)comboBoxSticker3.SelectedItem).Key}\"");
+                        attributes.Add($"\t\t\t\"122\"\t\t\"{textBoxScrape3.Text}\"");
+                    }
+                    if (checkBoxSticker4.Checked)
+                    {
+                        attributes.Add($"\t\t\t\"125\"\t\t\"{((KeyValuePair<int, string>)comboBoxSticker4.SelectedItem).Key}\"");
+                        attributes.Add($"\t\t\t\"126\"\t\t\"{textBoxScrape4.Text}\"");
+                    }
+                    if (checkBoxSticker5.Checked)
+                    {
+                        attributes.Add($"\t\t\t\"129\"\t\t\"{((KeyValuePair<int, string>)comboBoxSticker5.SelectedItem).Key}\"");
+                        attributes.Add($"\t\t\t\"130\"\t\t\"{textBoxScrape5.Text}\"");
+                    }
+                }
+                if (newItem.IsAgent)
+                {
+                    if (checkBoxSticker1.Checked)
+                    {
+                        attributes.Add($"\t\t\t\"113\"\t\t\"{((KeyValuePair<int, string>)comboBoxSticker1.SelectedItem).Key}\"");
+                    }
+                    if (checkBoxSticker2.Checked)
+                    {
+                        attributes.Add($"\t\t\t\"117\"\t\t\"{((KeyValuePair<int, string>)comboBoxSticker2.SelectedItem).Key}\"");
+                    }
+                    if (checkBoxSticker3.Checked)
+                    {
+                        attributes.Add($"\t\t\t\"121\"\t\t\"{((KeyValuePair<int, string>)comboBoxSticker3.SelectedItem).Key}\"");
+                    }
+                }
+                if (checkBoxStatTrak.Checked)
+                {
+                    attributes.Add($"\t\t\t\"80\"\t\t\"{(int)numericUpDownStatTrakKills.Value}\"");
+                    attributes.Add($"\t\t\t\"81\"\t\t\"0\"");
+                }
+                if (newItem.IsSticker)
+                {
+                    attributes.Add($"\t\t\t\"113\"\t\t\"{((KeyValuePair<int, string>)comboBoxStickers.SelectedItem).Key}\"");
+                }
+                if (newItem.IsPatch)
+                {
+                    attributes.Add($"\t\t\t\"113\"\t\t\"{((KeyValuePair<int, string>)comboBoxPatches.SelectedItem).Key}\"");
+                }
+                if (newItem.IsGraffiti)
+                {
+                    attributes.Add($"\t\t\t\"113\"\t\t\"{((KeyValuePair<int, string>)comboBoxGraffities.SelectedItem).Key}\"");
+                    attributes.Add($"\t\t\t\"233\"\t\t\"{(int)numericUpDownGraffitiColor.Value}\"");
+                }
+                if (newItem.IsMusicKit)
+                {
+                    attributes.Add($"\t\t\t\"166\"\t\t\"{((KeyValuePair<int, string>)comboBoxMusicKits.SelectedItem).Key}\"");
+                }
+                attributes.Add("\t\t}");
+                newItem.SetAttributes(attributes);
+            }
+            inventoryHandler.DuplicateItem(newItem);
+            form1.ApplyFilter("");
+            form1.UpdateItemList();
         }
     }
 }
