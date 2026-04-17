@@ -253,5 +253,29 @@ namespace CSGO_GC_Inventory_Tool.Classes
                 .ToList();
             RefreshIndexes();
         }
+
+        public void RemoveBulk(Item selectedItem)
+        {
+            List<Item> itemsToDelete = new List<Item>();
+            foreach (Item item in items)
+            {
+                if (item.IsWeapon && selectedItem.IsWeapon && item.PaintId == selectedItem.PaintId && item.DefIndex == selectedItem.DefIndex) itemsToDelete.Add(item);
+                else if (item.IsAgent && selectedItem.IsAgent && item.DefIndex == selectedItem.DefIndex) itemsToDelete.Add(item);
+                else if (item.IsGraffiti && selectedItem.IsGraffiti && item.StickerId == selectedItem.StickerId) itemsToDelete.Add(item);
+                else if (item.IsMusicKit && selectedItem.IsMusicKit && item.MusicId == selectedItem.MusicId) itemsToDelete.Add(item);
+                else if (item.IsPatch && selectedItem.IsPatch && item.StickerId == selectedItem.StickerId) itemsToDelete.Add(item);
+                else if (item.IsSticker && selectedItem.IsSticker && item.StickerId == selectedItem.StickerId) itemsToDelete.Add(item);
+                else if (!item.IsWeapon && !item.IsAgent && !item.IsGraffiti && !item.IsMusicKit && !item.IsPatch && !item.IsSticker && item.DefIndex == selectedItem.DefIndex) itemsToDelete.Add(item);
+            }
+            DialogResult dialog = MessageBox.Show($"Are you sure you want to delete {itemsToDelete.Count()} of {selectedItem}?", "Are you sure?", MessageBoxButtons.OKCancel);
+            if (dialog == DialogResult.OK)
+            {
+                foreach (Item item in itemsToDelete)
+                {
+                    items.Remove(item);
+                }
+            }
+            RefreshIndexes();
+        }
     }
 }

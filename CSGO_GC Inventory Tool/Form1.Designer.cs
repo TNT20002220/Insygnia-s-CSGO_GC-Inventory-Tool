@@ -33,6 +33,7 @@
             buttonRemoveDupes = new Button();
             buttonNormalize = new Button();
             groupBoxItemTools = new GroupBox();
+            buttonBulkDelete = new Button();
             labelGraffitiColor = new Label();
             labelSticker4 = new Label();
             labelSticker3 = new Label();
@@ -109,6 +110,7 @@
             // 
             // groupBoxItemTools
             // 
+            groupBoxItemTools.Controls.Add(buttonBulkDelete);
             groupBoxItemTools.Controls.Add(labelGraffitiColor);
             groupBoxItemTools.Controls.Add(labelSticker4);
             groupBoxItemTools.Controls.Add(labelSticker3);
@@ -134,6 +136,17 @@
             groupBoxItemTools.TabIndex = 4;
             groupBoxItemTools.TabStop = false;
             groupBoxItemTools.Text = "Selected Item";
+            // 
+            // buttonBulkDelete
+            // 
+            buttonBulkDelete.Enabled = false;
+            buttonBulkDelete.Location = new Point(303, 214);
+            buttonBulkDelete.Name = "buttonBulkDelete";
+            buttonBulkDelete.Size = new Size(93, 84);
+            buttonBulkDelete.TabIndex = 20;
+            buttonBulkDelete.Text = "Remove all of Selected";
+            buttonBulkDelete.UseVisualStyleBackColor = true;
+            buttonBulkDelete.Click += buttonBulkDelete_Click;
             // 
             // labelGraffitiColor
             // 
@@ -458,5 +471,6 @@
         private Label labelSticker1;
         private Label labelGraffitiColor;
         private Button buttonAddItem;
+        private Button buttonBulkDelete;
     }
 }
